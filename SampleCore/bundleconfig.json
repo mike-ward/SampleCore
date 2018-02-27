@@ -9,17 +9,24 @@
     ]
   },
   {
+    "outputFileName": "wwwroot/assets/vendor.min.js",
+    "inputFiles": [
+      "wwwroot/js/node_modules/mithril/mithril.min.js"
+    ],
+    "minify": {
+      "enabled": false,
+      "renameLocals": false
+    }
+  },
+  {
     "outputFileName": "wwwroot/assets/app.js",
     "inputFiles": [
-      "wwwroot/js/node_modules/mithril/mithril.js",
       "typescript-output.js"
     ],
-    // Optionally specify minification options
     "minify": {
       "enabled": true,
       "renameLocals": true
     },
-    // Optionally generate .map file
     "sourceMap": true
   }
 ]

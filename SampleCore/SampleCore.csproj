@@ -6,6 +6,7 @@
   <ItemGroup>
     <Content Remove="Pages\Layout.cshtml" />
     <Content Remove="wwwroot\js\app.ts" />
+    <Content Remove="wwwroot\js\components\status\loading.ts" />
     <Content Remove="wwwroot\js\pages\about.ts" />
     <Content Remove="wwwroot\js\pages\home.ts" />
     <Content Remove="wwwroot\js\components\nav-bar.ts" />
@@ -22,22 +23,21 @@
   <ItemGroup>
     <PackageReference Include="BuildBundlerMinifier" Version="2.6.362" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.2" />
   </ItemGroup>
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.2" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="wwwroot\assets\" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Pages\layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="wwwroot\js\components\status\loading.ts" />
     <TypeScriptCompile Include="wwwroot\js\pages\about.ts" />
     <TypeScriptCompile Include="wwwroot\js\pages\home.ts" />
-    <TypeScriptCompile Include="wwwroot\js\components\nav-bar.ts" />
-    <TypeScriptCompile Include="wwwroot\js\components\page-footer.ts" />
-    <TypeScriptCompile Include="wwwroot\js\components\page-header.ts" />
+    <TypeScriptCompile Include="wwwroot\js\components\page\nav-bar.ts" />
+    <TypeScriptCompile Include="wwwroot\js\components\page\page-footer.ts" />
+    <TypeScriptCompile Include="wwwroot\js\components\page\page-header.ts" />
     <TypeScriptCompile Include="wwwroot\js\services\dom.ts" />
     <TypeScriptCompile Include="wwwroot\js\app.ts" />
   </ItemGroup>

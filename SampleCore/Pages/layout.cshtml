@@ -4,21 +4,21 @@
   <title>@ViewBag.Title</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel='shortcut icon' type='image/x-icon' href='~/assets/images/favicon.ico' />
   <link rel="stylesheet" href="~/assets/vendor.min.css" asp-append-version="true" />
+  <script src="~/assets/vendor.min.js" asp-append-version="true"></script>
   <script src="~/assets/app.min.js" asp-append-version="true"></script>
   <script>App.Services.dom.loadCss(App);</script>
 </head>
 <body>
-  <div id="header">
-    <script>m.mount(document.getElementById("header"), App.Components.pageHeader)</script>
-  </div>
+  <div id="header"></div>
+  <script>m.mount(document.getElementById("header"), App.Components.pageHeader)</script>
 
   <div id="root">
     @RenderBody()
   </div>
 
-  <div id="footer">
-    <script>m.mount(document.getElementById("footer"), App.Components.pageFooter)</script>
-  </div>
+  <div id="footer"></div>
+  <script>m.mount(document.getElementById("footer"), App.Components.pageFooter)</script>
 </body>
 </html>
