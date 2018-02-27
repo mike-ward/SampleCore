@@ -1,0 +1,16 @@
+{
+  "name": "samplecore",
+  "version": "0.0.1",
+  "main": "site.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mike Ward",
+  "license": "ISC",
+  "dependencies": {
+    "mithril": "1.1.6",
+    "purecss": "1.0.0"
+  },
+  "devDependencies": {},
+  "description": ""
+}
