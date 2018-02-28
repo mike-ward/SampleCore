@@ -3,7 +3,7 @@
   "compilerOptions": {
     "noImplicitAny": true,
     "preserveConstEnums": true,
-    "outFile": "wwwroot/assets/app.js",
+    "outFile": "wwwroot/app.js",
     "sourceMap": true
   },
   "include": [

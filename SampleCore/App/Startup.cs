@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace SampleCore
+namespace SampleCore.App
 {
     public class Startup
     {
@@ -16,6 +16,7 @@ namespace SampleCore
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddResponseCompression();
             services.AddMvc();
         }
 
@@ -31,8 +32,10 @@ namespace SampleCore
                 app.UseExceptionHandler("/Error");
             }
 
-            app.UseStaticFiles();
+            // order matters (sigh!)
+            app.UseResponseCompression();
             app.UseMvc();
+            app.UseStaticFiles();
         }
     }
 }

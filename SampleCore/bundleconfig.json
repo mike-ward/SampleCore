@@ -2,20 +2,30 @@
 // More info at https://go.microsoft.com/fwlink/?LinkId=808241
 [
   {
-    "outputFileName": "wwwroot/assets/vendor.css",
+    "outputFileName": "wwwroot/vendor.css",
     // An array of relative input file paths. Globbing patterns supported
     "inputFiles": [
       "js/node_modules/purecss/build/pure.css"
     ]
   },
   {
-    "outputFileName": "wwwroot/assets/vendor.min.js",
+    "outputFileName": "wwwroot/vendor.min.js",
     "inputFiles": [
       "js/node_modules/mithril/mithril.min.js"
     ],
     "minify": {
       "enabled": false,
       "renameLocals": false
+    }
+  },
+  {
+    "outputFileName": "wwwroot/app.min.js",
+    "inputFiles": [
+      "wwwroot/app.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
     }
   }
 ]

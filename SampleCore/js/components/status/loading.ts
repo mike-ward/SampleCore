@@ -2,7 +2,7 @@
 
   function view(vnode: any) {
     return m('span', vnode.attrs, [
-      m('img.loading-img', { src: 'assets/images/loading-rectangle.gif' }),
+      m('img.loading-img', { src: 'images/loading-rectangle.gif' }),
       m.trust('&nbsp;Loading&hellip;')
     ]);
   }
