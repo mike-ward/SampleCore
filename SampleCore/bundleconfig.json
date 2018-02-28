@@ -17,16 +17,5 @@
       "enabled": false,
       "renameLocals": false
     }
-  },
-  {
-    "outputFileName": "wwwroot/assets/app.js",
-    "inputFiles": [
-      "typescript-output.js"
-    ],
-    "minify": {
-      "enabled": true,
-      "renameLocals": true
-    },
-    "sourceMap": true
   }
 ]

@@ -8,7 +8,6 @@ declare var m: any;
 const mountPage = (view: any) => m.mount(document.getElementById('root'), view);
 
 module App {
-
   export var app = {
     // language=CSS
     css: `
