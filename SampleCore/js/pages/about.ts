@@ -10,8 +10,8 @@
   function oncreate() {
     loading = true;
     getVersion()
-      .then(r => version = r)
-      .catch(r => version = r)
+      .then((r: string) => version = r)
+      .catch((r: string) => version = r)
       .finally(() => loading = false);
   }
 

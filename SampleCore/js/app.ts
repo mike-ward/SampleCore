@@ -8,8 +8,7 @@ declare var m: any;
 const mountPage = (view: any) => m.mount(document.getElementById('root'), view);
 
 module App {
-  console.log('mithril version: ', m.version);
-  console.log('mithril version: ', m.version);
+
   export var app = {
     // language=CSS
     css: `

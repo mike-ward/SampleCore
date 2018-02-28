@@ -13,7 +13,6 @@ Personal starter project using ASP.NET Core and Mithril JS.
 ## Visual Studio
 
 1. Install the [Typewriter](https://marketplace.visualstudio.com/items?itemName=frhagn.Typewriter) extension
-2. Install the [Bunder and Minifier](https://marketplace.visualstudio.com/items?itemName=MadsKristensen.BundlerMinifier) extension
 3. Insure Typscript is enabled on your system
  
 

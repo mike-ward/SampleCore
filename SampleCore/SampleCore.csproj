@@ -5,20 +5,27 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Remove="Pages\Layout.cshtml" />
-    <Content Remove="wwwroot\js\app.ts" />
-    <Content Remove="wwwroot\js\components\status\loading.ts" />
-    <Content Remove="wwwroot\js\pages\about.ts" />
-    <Content Remove="wwwroot\js\pages\home.ts" />
-    <Content Remove="wwwroot\js\components\nav-bar.ts" />
-    <Content Remove="wwwroot\js\components\page-footer.ts" />
-    <Content Remove="wwwroot\js\components\page-header.ts" />
-    <Content Remove="wwwroot\js\services\dom.ts" />
+    <Content Remove="js\app.ts" />
+    <Content Remove="js\components\status\loading.ts" />
+    <Content Remove="js\pages\about.ts" />
+    <Content Remove="js\pages\home.ts" />
+    <Content Remove="js\components\nav-bar.ts" />
+    <Content Remove="js\components\page-footer.ts" />
+    <Content Remove="js\components\page-header.ts" />
+    <Content Remove="js\services\dom.ts" />
   </ItemGroup>
   <ItemGroup>
+    <None Remove="js\pages\about.test.ts" />
     <None Remove="typescript-output.js" />
     <None Remove="typescript-output.js.map" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="js\components\page\nav-bar.ts" />
+    <Content Include="js\components\page\page-footer.ts" />
+    <Content Include="js\components\page\page-header.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="BuildBundlerMinifier" Version="2.6.362" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.2" />
   </ItemGroup>
@@ -29,14 +36,15 @@
     <None Include="Pages\layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="wwwroot\js\components\status\loading.ts" />
-    <TypeScriptCompile Include="wwwroot\js\pages\about.ts" />
-    <TypeScriptCompile Include="wwwroot\js\pages\home.ts" />
-    <TypeScriptCompile Include="wwwroot\js\components\page\nav-bar.ts" />
-    <TypeScriptCompile Include="wwwroot\js\components\page\page-footer.ts" />
-    <TypeScriptCompile Include="wwwroot\js\components\page\page-header.ts" />
-    <TypeScriptCompile Include="wwwroot\js\services\dom.ts" />
-    <TypeScriptCompile Include="wwwroot\js\app.ts" />
+    <TypeScriptCompile Include="js\components\status\loading.ts" />
+    <TypeScriptCompile Include="js\pages\about.test.js" />
+    <TypeScriptCompile Include="js\pages\about.ts" />
+    <TypeScriptCompile Include="js\pages\home.ts" />
+    <TypeScriptCompile Include="js\components\page\nav-bar.ts" />
+    <TypeScriptCompile Include="js\components\page\page-footer.ts" />
+    <TypeScriptCompile Include="js\components\page\page-header.ts" />
+    <TypeScriptCompile Include="js\services\dom.ts" />
+    <TypeScriptCompile Include="js\app.ts" />
   </ItemGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
     <TypeScriptTarget>ES5</TypeScriptTarget>

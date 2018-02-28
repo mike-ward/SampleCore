@@ -1,0 +1,16 @@
+﻿{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "noImplicitAny": true,
+    "preserveConstEnums": true,
+    "outFile": "../typescript-output.js",
+    "sourceMap": true
+  },
+  "include": [
+    "**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.test.ts"
+  ]
+}
