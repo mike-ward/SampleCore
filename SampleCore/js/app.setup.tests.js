@@ -1,12 +1,7 @@
-﻿'use strict';
-
-var m = require('mithril');
-var mq = require('mithril-query');
+﻿global.m = require('mithril');
 m.stream = require('mithril/stream');
+global.mq = require('mithril-query');
 
 var fs = require('fs');
 var app = fs.readFileSync('../wwwroot/app.js').toString();
 eval.apply(global, [app]);
-
-global.m = m;
-global.mq = mq;

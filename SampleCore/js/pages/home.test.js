@@ -1,5 +1,4 @@
-﻿'use strict';
-require('../app.setup.tests');
+﻿require('../app.setup.tests');
 
 test('home page has correct tags', () => {
   var out = mq(App.Pages.Home.page);

@@ -1,5 +1,4 @@
-﻿'use strict';
-require('../../app.setup.tests');
+﻿require('../../app.setup.tests');
 
 test('loading indicator should contain image', () => {
   var out = mq(App.Components.loading);
