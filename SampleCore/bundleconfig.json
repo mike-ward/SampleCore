@@ -11,7 +11,8 @@
   {
     "outputFileName": "wwwroot/vendor.min.js",
     "inputFiles": [
-      "js/node_modules/mithril/mithril.min.js"
+      "js/node_modules/mithril/mithril.min.js",
+      "js/node_modules/mithril/stream/stream.js"
     ],
     "minify": {
       "enabled": false,

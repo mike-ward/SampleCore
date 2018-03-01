@@ -1,6 +1,7 @@
 ﻿var fs = require('fs');
 var m = require('mithril');
 var mq = require('mithril-query');
+m.stream = require('mithril/stream');
 eval(fs.readFileSync('../wwwroot/app.js').toString());
 
 test('about page has correct tags', () => {
