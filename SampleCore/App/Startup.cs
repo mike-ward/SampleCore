@@ -34,8 +34,8 @@ namespace SampleCore.App
 
             // order matters (sigh!)
             app.UseResponseCompression();
-            app.UseMvc();
             app.UseStaticFiles();
+            app.UseMvc();
         }
     }
 }

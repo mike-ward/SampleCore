@@ -6,9 +6,6 @@ namespace SampleCore.Controllers
     public class SampleController : Controller
     {
         [HttpGet("version")]
-        public string Version()
-        {
-            return "0.0.1";
-        }
+        public string Version() => "0.0.1";
     }
 }
