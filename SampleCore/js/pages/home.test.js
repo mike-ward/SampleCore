@@ -1,7 +1,5 @@
-﻿var fs = require('fs');
-var m = require('mithril');
-var mq = require('mithril-query');
-eval(fs.readFileSync('../wwwroot/app.js').toString());
+﻿'use strict';
+require('../app.setup.tests');
 
 test('home page has correct tags', () => {
   var out = mq(App.Pages.Home.page);
