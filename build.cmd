@@ -15,7 +15,7 @@ echo ###        Install NPM Packages        ###
 echo ##########################################
 echo.
 
-pushd SampleCore\wwwroot\js
+pushd SampleCore\js
 call npm install
 popd
 if ERRORLEVEL 1 goto END

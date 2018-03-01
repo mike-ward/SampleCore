@@ -10,9 +10,14 @@
   function oncreate() {
     loading = true;
     getVersion()
-      .then((r: string) => version = r)
-      .catch((r: string) => version = r)
-      .finally(() => loading = false);
+      .then((r: string) => {
+        version = r;
+        loading = false;
+      })
+      .catch((r: string) => {
+        version = r;
+        loading = false;
+      });
   }
 
   function view() {
