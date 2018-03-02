@@ -1,6 +1,7 @@
 ﻿{
   "compileOnSave": true,
   "compilerOptions": {
+    "target": "es5",
     "noImplicitAny": true,
     "preserveConstEnums": true,
     "outFile": "wwwroot/app.js",

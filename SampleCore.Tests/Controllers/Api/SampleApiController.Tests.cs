@@ -1,8 +1,8 @@
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using SampleCore.Controllers;
+using SampleCore.Controllers.Api;
 
-namespace SampleCore.Tests.Controllers
+namespace SampleCore.Tests.Controllers.Api
 {
     [TestClass]
     public class SampleControllerTests
@@ -10,7 +10,7 @@ namespace SampleCore.Tests.Controllers
         [TestMethod]
         public void VersonShouldReturnString()
         {
-            var controller = new SampleController();
+            var controller = new SampleApiController();
             controller.Version().Should().Be("0.0.1");
         }
     }

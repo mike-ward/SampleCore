@@ -50,6 +50,9 @@
     <TypeScriptCompile Include="js\services\dom.ts" />
     <TypeScriptCompile Include="js\app.ts" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controllers\Account\" />
+  </ItemGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
     <TypeScriptTarget>ES5</TypeScriptTarget>
     <TypeScriptJSXEmit>None</TypeScriptJSXEmit>

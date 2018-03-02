@@ -1,23 +1,20 @@
-﻿module App.Pages.About {
+﻿module App.Pages {
 
   let version = '';
   let loading = false;
 
   function getVersion() {
-    return m.request({ url: 'api/sample/version', data: { r: Date.now() } });
+    return m.request({ url: 'api/sampleapi/version', data: { r: Date.now() } });
   }
 
   function oncreate() {
     loading = true;
+    // next version of Mithril will have finally
     getVersion()
-      .then((r: string) => {
-        version = r;
-        loading = false;
-      })
-      .catch((r: string) => {
-        version = r;
-        loading = false;
-      });
+      .then((rs: string) => version = rs)
+      .catch((rj: string) => version = rj)
+      .then(() => loading = false)
+      .catch(() => loading = false);
   }
 
   function view() {
@@ -28,7 +25,7 @@
     ]);
   }
 
-  export var page = {
+  export var about = {
     oncreate: oncreate,
     view: view
   }

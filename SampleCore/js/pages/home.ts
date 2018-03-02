@@ -1,4 +1,4 @@
-﻿module App.Pages.Home {
+﻿module App.Pages {
 
   function view() {
     return m('div', [
@@ -6,7 +6,7 @@
     ]);
   }
 
-  export var page = {
+  export var home = {
     view: view
   }
 }
