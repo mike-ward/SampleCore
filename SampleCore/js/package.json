@@ -1,8 +1,9 @@
 {
   "name": "samplecore",
   "version": "0.0.1",
-  "main": "site.js",
+  "main": "app.js",
   "scripts": {
+    "start": "jest --watch",
     "test": "jest"
   },
   "author": "Mike Ward",
