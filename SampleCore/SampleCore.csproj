@@ -14,10 +14,12 @@
     <Content Remove="js\components\nav-bar.ts" />
     <Content Remove="js\components\page-footer.ts" />
     <Content Remove="js\components\page-header.ts" />
-    <Content Remove="js\services\dom.ts" />
   </ItemGroup>
   <ItemGroup>
+    <None Remove="js\components\widgets\grid-options.ts" />
+    <None Remove="js\components\widgets\grid.ts" />
     <None Remove="js\pages\about.test.ts" />
+    <None Remove="js\services\compare-service.ts" />
     <None Remove="typescript-output.js" />
     <None Remove="typescript-output.js.map" />
   </ItemGroup>
@@ -41,13 +43,16 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="js\components\status\loading.ts" />
+    <TypeScriptCompile Include="js\components\widgets\grid-options.ts" />
+    <TypeScriptCompile Include="js\components\widgets\grid.ts" />
     <TypeScriptCompile Include="js\pages\about.test.js" />
     <TypeScriptCompile Include="js\pages\about.ts" />
     <TypeScriptCompile Include="js\pages\home.ts" />
     <TypeScriptCompile Include="js\components\page\nav-bar.ts" />
     <TypeScriptCompile Include="js\components\page\page-footer.ts" />
     <TypeScriptCompile Include="js\components\page\page-header.ts" />
-    <TypeScriptCompile Include="js\services\dom.ts" />
+    <TypeScriptCompile Include="js\services\compare-service.ts" />
+    <TypeScriptCompile Include="js\services\dom-service.ts" />
     <TypeScriptCompile Include="js\app.ts" />
   </ItemGroup>
   <ItemGroup>

@@ -25,7 +25,7 @@
       document.getElementsByTagName('head')[0].appendChild(style);
     }
 
-    export var dom = {
+    export var domService = {
       loadCss: loadCss
     }
 }
