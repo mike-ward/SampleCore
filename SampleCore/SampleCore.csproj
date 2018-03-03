@@ -18,7 +18,6 @@
   <ItemGroup>
     <None Remove="js\components\widgets\grid-options.ts" />
     <None Remove="js\components\widgets\grid.ts" />
-    <None Remove="js\pages\about.test.ts" />
     <None Remove="js\services\compare-service.ts" />
     <None Remove="typescript-output.js" />
     <None Remove="typescript-output.js.map" />
@@ -45,7 +44,7 @@
     <TypeScriptCompile Include="js\components\status\loading.ts" />
     <TypeScriptCompile Include="js\components\widgets\grid-options.ts" />
     <TypeScriptCompile Include="js\components\widgets\grid.ts" />
-    <TypeScriptCompile Include="js\pages\about.test.js" />
+    <TypeScriptCompile Include="js\pages\about.test.ts" />
     <TypeScriptCompile Include="js\pages\about.ts" />
     <TypeScriptCompile Include="js\pages\home.ts" />
     <TypeScriptCompile Include="js\components\page\nav-bar.ts" />

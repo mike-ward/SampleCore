@@ -1,5 +1,7 @@
-﻿import { navBar } from './nav-bar';
-import * as mq from 'mithri-query';
+﻿/// <amd-dependency path="mitril-query" />
+declare var require: (moduleId: string) => any;
+var mq = require("mithril-query");
+import { navBar } from './nav-bar';
 
 test('nav-bar should contain menu', () => {
   const navbarOptions = {

@@ -1,6 +1,9 @@
-﻿require('../../app.setup.tests');
+﻿/// <amd-dependency path="mitril-query" />
+declare var require: (moduleId: string) => any;
+var mq = require("mithril-query");
+import { pageHeader } from './page-header';
 
-test('page-hearder should contain menu', () => {
+test('page-header should contain menu', () => {
   const navbarOptions = {
     items: [
       { name: 'Home', link: 'home' },
@@ -10,7 +13,7 @@ test('page-hearder should contain menu', () => {
     ]
   }
 
-  var out = mq(App.Components.pageHeader, { options: navbarOptions });
+  var out = mq(pageHeader, { options: navbarOptions });
   out.should.have('.header');
   out.should.have('.nav-bar');
   out.should.have(4, 'a');
