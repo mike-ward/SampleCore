@@ -1,26 +1,29 @@
-﻿module App.Pages {
+﻿import * as mithril from 'mithril';
+const m = mithril as any;
+
+import { loading } from '../components/status/loading';
 
   let version = '';
-  let loading = false;
+  let isLoading = false;
 
   function getVersion() {
     return m.request({ url: 'api/sampleapi/version', data: { r: Date.now() } });
   }
 
   function oncreate() {
-    loading = true;
+    isLoading = true;
     // next version of Mithril will have finally
     getVersion()
       .then((rs: string) => version = rs)
       .catch((rj: string) => version = rj)
-      .then(() => loading = false)
-      .catch(() => loading = false);
+      .then(() => isLoading = false)
+      .catch(() => isLoading = false);
   }
 
   function view() {
     return m('div', [
       m('h1', "I'm an aboot page"),
-      m(Components.loading, { style: { visibility: loading ? 'visible' : 'hidden' } }),
+      m(loading, { style: { visibility: isLoading ? 'visible' : 'hidden' } }),
       m('p', `version: ${version}`)
     ]);
   }
@@ -29,4 +32,3 @@
     oncreate: oncreate,
     view: view
   }
-}

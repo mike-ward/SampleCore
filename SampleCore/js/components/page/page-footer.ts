@@ -1,17 +1,17 @@
-﻿module App.Components {
-  function view() {
-    return m(
-      '.footer', [
-        m('hr'),
-        m('.app-footer', 'footer stuff goes here')
-      ]);
-  }
+﻿import * as m from 'mithril';
 
-  // language=CSS
-  const css = `.footer{margin-top:5rem;}`;
+function view() {
+  return m(
+    '.footer', [
+      m('hr'),
+      m('.app-footer', 'footer stuff goes here')
+    ]);
+}
 
-  export const pageFooter = {
-    view: view,
-    css: css
-  }
+// language=CSS
+const css = `.footer{margin-top:5rem;}`;
+
+export const pageFooter = {
+  view: view,
+  css: css
 }

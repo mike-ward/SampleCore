@@ -1,9 +1,10 @@
 {
   "name": "samplecore",
   "version": "0.0.1",
-  "main": "app.js",
+  "main": "../wwwwroot/app.js",
   "scripts": {
-    "start": "jest --watch",
+    "build": "webpack --mode development",
+    "start": "webpack --watch",
     "test": "jest"
   },
   "author": "Mike Ward",
@@ -13,8 +14,14 @@
     "purecss": "1.0.0"
   },
   "devDependencies": {
+    "@types/mithril": "1.1.12",
     "jest": "22.4.2",
-    "mithril-query": "2.3.0"
+    "mithril-query": "2.3.0",
+    "ts-jest": "^22.4.1",
+    "ts-loader": "4.0.1",
+    "typescript": "2.7.2",
+    "webpack": "4.0.1",
+    "webpack-cli": "2.0.10"
   },
   "description": "Exploring ASP.NET Core and Mithril"
 }

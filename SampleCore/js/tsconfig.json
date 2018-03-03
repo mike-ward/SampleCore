@@ -2,10 +2,10 @@
   "compileOnSave": true,
   "compilerOptions": {
     "target": "es5",
+    "module": "es6",
     "noImplicitAny": true,
     "preserveConstEnums": true,
-    "outFile": "wwwroot/app.js",
-    "sourceMap": true
+    "outDir": "../dist/"
   },
   "include": [
     "**/*"
@@ -13,5 +13,12 @@
   "exclude": [
     "node_modules",
     "**/*.test.js"
-  ]
+  ],
+  "lib": [
+    "es2015.promise",
+    "..."
+  ],
+  "resolve": {
+    "extensions": [ ".tsx", ".ts" ]
+  }
 }

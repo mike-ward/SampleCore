@@ -1,13 +1,15 @@
-﻿module App.Components {
-  function view(vnode: any) {
-    const options = vnode.attrs.options;
-    return options
-      ? m('.nav-bar', options.items.map((item: any) => m('a', { href: item.link }, item.name)))
-      : null;
-  }
+﻿import * as mithril from 'mithril';
+const m = mithril as any;
 
-  // language=css
-  const css = `
+function view(vnode: any) {
+  const options = vnode.attrs.options;
+  return options
+    ? m('.nav-bar', options.items.map((item: any) => m('a', { href: item.link }, item.name)))
+    : null;
+}
+
+// language=css
+const css = `
       .nav-bar {
         margin: .25em auto;
       }
@@ -20,8 +22,7 @@
         border-bottom: solid 1px;
       }`;
 
-  export const navBar = {
-    view: view,
-    css: css
-  }
+export const navBar = {
+  view: view,
+  css: css
 }

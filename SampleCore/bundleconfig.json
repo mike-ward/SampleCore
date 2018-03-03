@@ -13,11 +13,5 @@
       "js/node_modules/mithril/mithril.js",
       "js/node_modules/mithril/stream/stream.js"
     ]
-  },
-  {
-    "outputFileName": "wwwroot/app.min.js",
-    "inputFiles": [
-      "wwwroot/app.js"
-    ]
   }
 ]

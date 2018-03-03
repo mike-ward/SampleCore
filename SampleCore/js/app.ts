@@ -1,16 +1,17 @@
-﻿/*! Copyright INDS Inc, All rights reserved */
+﻿import * as m from 'mithril';
+import { home } from './pages/home';
+import { about } from './pages/about';
+import { pageHeader } from './components/page/page-header';
+import { pageFooter } from './components/page/page-footer';
+
+var pages = { home, about }
 
 // true if IE less than 9
 if (!-[1,]) alert('Internet Explorer 7 and 8 are not supported');
 
-// Mithril declarations
-declare var m: any;
-const mountPage = (view: any) => m.mount(document.getElementById('root'), view);
-
-module App {
-  export var app = {
-    // language=CSS
-    css: `
+export var app = {
+  // language=CSS
+  css: `
       body{
         color:#333;
         background-color:#f9fafb;;
@@ -28,5 +29,12 @@ module App {
       .current-user-login{
         text-align:right;
       }`
-  }
-}
+};
+
+(window as any).sampleApp = {
+  pages: pages,
+  loadHeader: () => m.mount(document.getElementById('header'), pageHeader),
+  loadPage: (page: string) => m.mount(document.getElementById('root'), (pages as any)[page]),
+  loadFooter: () => m.mount(document.getElementById('footer'), pageFooter)
+};
+
