@@ -1,7 +1,7 @@
-﻿require('../app.setup.tests');
+﻿import { compareService } from './compare-service';
 
 test('compare-service tests', () => {
-  const compareAny = App.Services.compareService.compareAny;
+  const compareAny = compareService.compareAny;
   expect(compareAny('a', 'b')).toBe(-1);
   expect(compareAny('b', 'a')).toBe(+1);
   expect(compareAny('', '')).toBe(0);

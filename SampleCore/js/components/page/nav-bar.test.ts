@@ -1,5 +1,5 @@
-﻿require('../../app.setup.tests');
-var navBar = require('./nav-bar');
+﻿import { navBar } from './nav-bar';
+import * as mq from 'mithri-query';
 
 test('nav-bar should contain menu', () => {
   const navbarOptions = {
@@ -11,7 +11,7 @@ test('nav-bar should contain menu', () => {
     ]
   }
 
-  var out = mq(navBar, {options: navbarOptions});
+  var out = mq({navBar}.navBar, {options: navbarOptions});
   out.should.have('.nav-bar');
   out.should.have(4, 'a');
 })
