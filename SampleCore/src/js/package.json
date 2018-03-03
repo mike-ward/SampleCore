@@ -1,9 +1,9 @@
 {
   "name": "samplecore",
   "version": "0.0.1",
-  "main": "../wwwwroot/app.js",
+  "main": "../../wwwwroot/app.js",
   "scripts": {
-    "build": "webpack --mode development",
+    "build": "webpack",
     "start": "webpack --watch",
     "test": "jest"
   },

@@ -3,8 +3,8 @@
 module.exports = {
   entry: './app.ts',
   output: {
-    filename: '../wwwroot/app.js',
-    path: path.resolve(__dirname, '../dist')
+    filename: '../../wwwroot/app.js',
+    path: path.resolve(__dirname, '../build')
   },
   module: {
     rules: [
