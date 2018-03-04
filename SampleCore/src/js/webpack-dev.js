@@ -2,8 +2,6 @@
 const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
-  devtool: 'inline-source-map',
-  devServer: {
-    contentBase: './bulid'
-  }
+  devtool: 'source-map',
+  devServer: { contentBase: './bulid' }
 });

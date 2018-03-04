@@ -10,7 +10,6 @@ import { pageFooter } from './components/page/page-footer';
 import { loadStyles } from './services/dom-service';
 
 const pages = { home, about };
-(loadStyles as any).logg('testtt');
 
 // language=CSS
 const css = `
@@ -35,8 +34,8 @@ const css = `
 loadStyles(css);
 
 (window as any).sampleApp = {
-  loadHeader: () => m.mount(document.getElementById('header'), pageHeader),
-  loadPage: (page: string) => m.mount(document.getElementById('root'), (pages as any)[page]),
-  loadFooter: () => m.mount(document.getElementById('footer'), pageFooter)
+  loadHeader: () => m.mount(document.getElementById('header') as Element, pageHeader),
+  loadPage: (page: string) => m.mount(document.getElementById('root') as Element, (pages as any)[page]),
+  loadFooter: () => m.mount(document.getElementById('footer') as Element, pageFooter)
 };
 

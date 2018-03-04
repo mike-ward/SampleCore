@@ -1,7 +1,7 @@
 {
   "name": "samplecore",
   "version": "0.0.1",
-  "main": "../../wwwwroot/app.js",
+  "main": "../../../wwwwroot/app.js",
   "scripts": {
     "build": "webpack --config webpack-prod.js",
     "start": "webpack --watch --config webpack-dev.js",
@@ -11,11 +11,13 @@
   "license": "ISC",
   "dependencies": {
     "mithril": "1.1.6",
+    "npm": "^5.7.1",
     "purecss": "1.0.0"
   },
   "devDependencies": {
     "@types/jest": "22.1.4",
     "@types/mithril": "1.1.12",
+    "@types/webpack-env": "^1.13.5",
     "clean-webpack-plugin": "0.1.18",
     "css-loader": "0.28.10",
     "jest": "22.4.2",

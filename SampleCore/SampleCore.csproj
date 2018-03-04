@@ -4,6 +4,15 @@
     <TypeScriptToolsVersion>2.5</TypeScriptToolsVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="%2a%2a\**" />
+    <Content Remove="%2a%2a\**" />
+    <EmbeddedResource Remove="%2a%2a\**" />
+    <None Remove="%2a%2a\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="%2a%2a\%2a.config" />
+    <Content Remove="%2a%2a\%2a.cshtml" />
+    <Content Remove="%2a%2a\%2a.json" />
     <Content Remove="src\js\package.json" />
     <Content Remove="Pages\Layout.cshtml" />
     <Content Remove="src\js\app.ts" />
@@ -13,6 +22,9 @@
     <Content Remove="src\js\components\nav-bar.ts" />
     <Content Remove="src\js\components\page-footer.ts" />
     <Content Remove="src\js\components\page-header.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="%2a%2a/%2a.resx" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="src\js\components\widgets\grid-options.ts" />
@@ -25,6 +37,7 @@
     <Content Include="src\js\components\page\nav-bar.ts" />
     <Content Include="src\js\components\page\page-footer.ts" />
     <Content Include="src\js\components\page\page-header.ts" />
+    <Content Include="src\js\tsconfig.json" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="BuildBundlerMinifier" Version="2.6.362" />
@@ -51,9 +64,6 @@
     <TypeScriptCompile Include="src\js\services\compare-service.ts" />
     <TypeScriptCompile Include="src\js\services\dom-service.ts" />
     <TypeScriptCompile Include="src\js\app.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controllers\Account\" />
   </ItemGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
     <TypeScriptTarget>ES5</TypeScriptTarget>
