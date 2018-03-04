@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace SampleCore.App
 {
@@ -32,8 +33,8 @@ namespace SampleCore.App
                 app.UseExceptionHandler("/Error");
             }
 
-            // order matters (sigh!)
             app.UseResponseCompression();
+            app.UseDirectoryBrowser(); // just so I can see something on Azure
             app.UseStaticFiles();
             app.UseMvc();
         }
