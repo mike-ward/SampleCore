@@ -37,6 +37,7 @@
     <Content Include="src\js\components\page\nav-bar.ts" />
     <Content Include="src\js\components\page\page-footer.ts" />
     <Content Include="src\js\components\page\page-header.ts" />
+    <Content Include="src\js\package-lock.json" />
     <Content Include="src\js\tsconfig.json" />
   </ItemGroup>
   <ItemGroup>
