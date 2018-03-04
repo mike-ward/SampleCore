@@ -7,7 +7,8 @@ Personal starter project using ASP.NET Core and Mithril JS.
 ## Get Started
 
 1. Clone repository
-2. Run `build.cmd`
+
+        build.cmd
 
 
 ## Visual Studio
@@ -26,4 +27,5 @@ Personal starter project using ASP.NET Core and Mithril JS.
 
 ## Running Tests
 
-*coming soon*
+    npm test     // runs all tests once
+    npm start    // starts webpack file watcher

@@ -13,6 +13,7 @@
     <Content Remove="%2a%2a\%2a.config" />
     <Content Remove="%2a%2a\%2a.cshtml" />
     <Content Remove="%2a%2a\%2a.json" />
+    <Content Remove="Pages\index.cshtml" />
     <Content Remove="src\js\package.json" />
     <Content Remove="Pages\Layout.cshtml" />
     <Content Remove="src\js\app.ts" />
@@ -34,6 +35,8 @@
     <None Remove="typescript-output.js.map" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Pages\about.cshtml" />
+    <Content Include="Pages\home.cshtml" />
     <Content Include="src\js\components\page\nav-bar.ts" />
     <Content Include="src\js\components\page\page-footer.ts" />
     <Content Include="src\js\components\page\page-header.ts" />
@@ -49,6 +52,7 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.2" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Pages\index.cshtml" />
     <None Include="src\js\package.json" />
     <None Include="Pages\layout.cshtml" />
   </ItemGroup>

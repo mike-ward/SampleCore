@@ -15,8 +15,19 @@ echo ###        Install NPM Packages        ###
 echo ##########################################
 echo.
 
-pushd SampleCore\js
+pushd SampleCore\src\js
 call npm install
+popd
+if ERRORLEVEL 1 goto END
+
+echo.
+echo ##########################################
+echo ###      Build JavaScript Assets       ###
+echo ##########################################
+echo.
+
+pushd SampleCore\src\js
+call npm run build
 popd
 if ERRORLEVEL 1 goto END
 
