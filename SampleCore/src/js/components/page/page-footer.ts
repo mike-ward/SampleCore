@@ -1,4 +1,5 @@
 ﻿import * as m from 'mithril';
+import { loadStyles } from '../../services/dom-service';
 
 function view() {
   return m(
@@ -10,6 +11,7 @@ function view() {
 
 // language=CSS
 const css = `.footer{margin-top:5rem;}`;
+loadStyles(css);
 
 export const pageFooter = {
   view: view,

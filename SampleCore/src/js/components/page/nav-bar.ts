@@ -1,5 +1,6 @@
 ﻿import * as mithril from 'mithril';
 const m = mithril as any;
+import { loadStyles } from '../../services/dom-service';
 
 function view(vnode: any) {
   const options = vnode.attrs.options;
@@ -21,6 +22,8 @@ const css = `
       .nav-bar a:hover {
         border-bottom: solid 1px;
       }`;
+
+loadStyles(css);
 
 export const navBar = {
   view: view,

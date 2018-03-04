@@ -1,10 +1,12 @@
 ﻿import * as mithril from 'mithril';
 const m = mithril as any;
+import { loadStyles } from '../../services/dom-service';
 
 import { navBar } from './nav-bar';
 
 // language=CSS
 const css = `.header{clear:both;text-align:center;}`;
+loadStyles(css);
 
 const navbarOptions = {
   items: [

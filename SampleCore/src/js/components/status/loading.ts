@@ -1,5 +1,6 @@
 ﻿import * as mithril from 'mithril';
 const m = mithril as any;
+import { loadStyles } from '../../services/dom-service';
 
 function view(vnode: any) {
   return m('span', vnode.attrs, [
@@ -10,6 +11,7 @@ function view(vnode: any) {
 
 // language=css
 const css = `.loading-img { height: 16px; width: 16px; vertical-align: middle}`;
+loadStyles(css);
 
 export const loading = {
   view: view,
