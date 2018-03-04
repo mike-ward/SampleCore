@@ -11,17 +11,17 @@ function view(vnode: any) {
 
 // language=css
 const css = `
-      .nav-bar {
-        margin: .25em auto;
-      }
-      .nav-bar a {
-        margin: 0 1em;
-        white-space: nowrap;
-        text-decoration: none;
-      }
-      .nav-bar a:hover {
-        border-bottom: solid 1px;
-      }`;
+  .nav-bar {
+    margin: .25em auto;
+  }
+  .nav-bar a {
+    margin: 0 1em;
+    white-space: nowrap;
+    text-decoration: none;
+  }
+  .nav-bar a:hover {
+    border-bottom: solid 1px;
+  }`;
 
 loadStyles(css);
 
