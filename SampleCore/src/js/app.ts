@@ -9,7 +9,8 @@ import { pageHeader } from './components/page/page-header';
 import { pageFooter } from './components/page/page-footer';
 import { loadStyles } from './services/dom-service';
 
-const pages = { home, about }
+const pages = { home, about };
+(loadStyles as any).logg('testtt');
 
 // language=CSS
 const css = `

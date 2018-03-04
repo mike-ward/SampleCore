@@ -4,7 +4,6 @@
     <TypeScriptToolsVersion>2.5</TypeScriptToolsVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Content Remove="bundleconfig.json" />
     <Content Remove="src\js\package.json" />
     <Content Remove="Pages\Layout.cshtml" />
     <Content Remove="src\js\app.ts" />
@@ -36,7 +35,6 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.2" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bundleconfig.json" />
     <None Include="src\js\package.json" />
     <None Include="Pages\layout.cshtml" />
   </ItemGroup>
