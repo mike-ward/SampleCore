@@ -2,7 +2,7 @@
 
 echo.
 echo ##########################################
-echo ###          Restore Packages          ###
+echo ###      Restore Nuget Packages        ###
 echo ##########################################
 echo.
 
