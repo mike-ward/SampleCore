@@ -25,10 +25,14 @@
   </ItemGroup>
   
   <ItemGroup>
+    <Content Include="Pages\about.cshtml" />
+    <Content Include="Pages\home.cshtml" />
+    <Content Include="Pages\index.cshtml" />
+    <Content Include="Pages\layout.cshtml" />
     <Content Include="src\js\package-lock.json" />
     <Content Include="src\js\package.json" />
-    <Content Include="src\js\tsconfig.json" />
   </ItemGroup>
+  
   
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
     <TypeScriptTarget>ES5</TypeScriptTarget>
