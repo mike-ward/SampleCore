@@ -3,10 +3,10 @@
   "version": "0.0.1",
   "main": "../../../wwwwroot/app.js",
   "scripts": {
-    "build": "parcel build app.ts --out-dir ..\\..\\wwwroot",
-    "start": "parcel watch app.ts --out-dir ..\\..\\wwwroot",
+    "build": "parcel build app.ts --out-dir ../../wwwroot --no-cache",
+    "start": "parcel watch app.ts --out-dir ../../wwwroot",
     "test": "jest",
-    "dev-build": "parcel build app.ts --out-dir ..\\..\\wwwroot --no-minify"
+    "dev-build": "parcel build app.ts --out-dir ../../wwwroot --no-minify"
 
   },
   "author": "Mike Ward",
