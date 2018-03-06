@@ -24,6 +24,12 @@
     <Folder Remove="**\" />
   </ItemGroup>
   
+  <ItemGroup>
+    <Content Include="src\js\package-lock.json" />
+    <Content Include="src\js\package.json" />
+    <Content Include="src\js\tsconfig.json" />
+  </ItemGroup>
+  
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
     <TypeScriptTarget>ES5</TypeScriptTarget>
     <TypeScriptJSXEmit>None</TypeScriptJSXEmit>
