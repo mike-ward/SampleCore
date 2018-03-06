@@ -6,6 +6,6 @@ import { home } from './home';
 test('home page has correct tags', () => {
   var out = mq(home);
   out.should.have('div');
-  out.should.have('h1');
+  out.should.have('h2');
   out.should.contain("Welcome");
 });

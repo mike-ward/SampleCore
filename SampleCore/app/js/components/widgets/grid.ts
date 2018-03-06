@@ -1,8 +1,7 @@
-﻿import * as mithril from 'mithril';
-var m = mithril as any;
-
+﻿import * as m from 'mithril';
 import { GridOptions, GridColumn } from './grid-options';
 import { compareService } from '../../services/compare-service';
+import { loadStyles } from '../../services/dom-service';
 
 function head(gridOptions: GridOptions, state: any) {
   const thead = m('thead', [
@@ -118,6 +117,8 @@ const css = `
       .grid-column-sort-indicator{margin-left:1em;}
       .grid-column-sort-indicator-hidden{visibility:collapse;}
       .grid-column-title:hover .grid-column-sort-indicator-hidden{color:gray !important;visibility:visible;}`;
+
+loadStyles(css);
 
 export const grid = {
   view: view,

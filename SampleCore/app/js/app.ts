@@ -1,4 +1,7 @@
-﻿// true if IE less than 9
+﻿declare var module: any;
+if (module.hot) module.hot.accept();
+
+// true if IE less than 9
 if (!-[1,]) alert('Internet Explorer 7 and 8 are not supported');
 
 import './node_modules/purecss/build/pure-min.css';
@@ -38,4 +41,3 @@ loadStyles(css);
   loadPage: (page: string) => m.mount(document.getElementById('root') as Element, (pages as any)[page]),
   loadFooter: () => m.mount(document.getElementById('footer') as Element, pageFooter)
 };
-

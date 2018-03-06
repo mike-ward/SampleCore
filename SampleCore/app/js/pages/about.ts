@@ -1,5 +1,4 @@
-﻿import * as mithril from 'mithril';
-const m = mithril as any;
+﻿import * as m from 'mithril';
 
 import { loading } from '../components/status/loading';
 
