@@ -25,12 +25,16 @@
   </ItemGroup>
   
   <ItemGroup>
+    <None Remove="SampleCore.csproj.DotSettings" />
+  </ItemGroup>
+  
+  <ItemGroup>
     <Content Include="Pages\about.cshtml" />
     <Content Include="Pages\home.cshtml" />
     <Content Include="Pages\index.cshtml" />
     <Content Include="Pages\layout.cshtml" />
-    <Content Include="src\js\package-lock.json" />
-    <Content Include="src\js\package.json" />
+    <Content Include="app\js\package-lock.json" />
+    <Content Include="app\js\package.json" />
   </ItemGroup>
   
   
@@ -39,7 +43,7 @@
     <TypeScriptJSXEmit>None</TypeScriptJSXEmit>
     <TypeScriptModuleKind>ES6</TypeScriptModuleKind>
     <TypeScriptCompileOnSaveEnabled>False</TypeScriptCompileOnSaveEnabled>
-    <TypeScriptNoImplicitAny>False</TypeScriptNoImplicitAny>
+    <TypeScriptNoImplicitAny>True</TypeScriptNoImplicitAny>
     <TypeScriptRemoveComments>False</TypeScriptRemoveComments>
     <TypeScriptOutFile />
     <TypeScriptOutDir>dist</TypeScriptOutDir>
