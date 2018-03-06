@@ -1,0 +1,10 @@
+﻿{
+  "compileOptions": {
+    "target": "es5",
+    "module": "es6",
+    "outDir": "dist",
+    "sourceMap": true,
+    "strict": true,
+    "compileOnSave": false
+  }
+}

@@ -29,6 +29,7 @@
   </ItemGroup>
   
   <ItemGroup>
+    <Content Include="app\js\tsconfig.json" />
     <Content Include="Pages\about.cshtml" />
     <Content Include="Pages\home.cshtml" />
     <Content Include="Pages\index.cshtml" />
