@@ -5,7 +5,9 @@
   "scripts": {
     "build": "parcel build app.ts --out-dir ..\\..\\wwwroot",
     "start": "parcel watch app.ts --out-dir ..\\..\\wwwroot",
-    "test": "jest"
+    "test": "jest",
+    "dev-build": "parcel build app.ts --out-dir ..\\..\\wwwroot --no-minify"
+
   },
   "author": "Mike Ward",
   "license": "ISC",
@@ -19,7 +21,7 @@
     "jest": "22.4.2",
     "mithril-query": "2.3.0",
     "ts-jest": "22.4.1",
-    "typescript": "^2.7.2"
+    "typescript": "2.7.2"
   },
   "description": "Exploring ASP.NET Core and Mithril"
 }

@@ -2,7 +2,7 @@
 
 function view() {
   return m('div', [
-    m('h1', 'Welcome')
+    m('h2', 'Welcome')
   ]);
 }
 
