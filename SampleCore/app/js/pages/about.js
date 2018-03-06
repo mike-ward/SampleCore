@@ -17,7 +17,7 @@ function oncreate() {
 }
 function view() {
     return m('div', [
-        m('h1', "I'm an aboot page"),
+        m('h2', "I'm an aboot page"),
         m(loading_1.loading, { style: { visibility: isLoading ? 'visible' : 'hidden' } }),
         m('p', "version: " + version)
     ]);
