@@ -1,87 +1,42 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
-    <TypeScriptToolsVersion>2.5</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
   </PropertyGroup>
-  <ItemGroup>
-    <Compile Remove="%2a%2a\**" />
-    <Content Remove="%2a%2a\**" />
-    <EmbeddedResource Remove="%2a%2a\**" />
-    <None Remove="%2a%2a\**" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Remove="%2a%2a\%2a.config" />
-    <Content Remove="%2a%2a\%2a.cshtml" />
-    <Content Remove="%2a%2a\%2a.json" />
-    <Content Remove="Pages\index.cshtml" />
-    <Content Remove="src\js\package.json" />
-    <Content Remove="Pages\Layout.cshtml" />
-    <Content Remove="src\js\app.ts" />
-    <Content Remove="src\js\components\status\loading.ts" />
-    <Content Remove="src\js\pages\about.ts" />
-    <Content Remove="src\js\pages\home.ts" />
-    <Content Remove="src\js\components\nav-bar.ts" />
-    <Content Remove="src\js\components\page-footer.ts" />
-    <Content Remove="src\js\components\page-header.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Remove="%2a%2a/%2a.resx" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Remove="src\js\components\widgets\grid-options.ts" />
-    <None Remove="src\js\components\widgets\grid.ts" />
-    <None Remove="src\js\services\compare-service.ts" />
-    <None Remove="typescript-output.js" />
-    <None Remove="typescript-output.js.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Pages\about.cshtml" />
-    <Content Include="Pages\home.cshtml" />
-    <Content Include="src\js\components\page\nav-bar.ts" />
-    <Content Include="src\js\components\page\page-footer.ts" />
-    <Content Include="src\js\components\page\page-header.ts" />
-    <Content Include="src\js\package-lock.json" />
-    <Content Include="src\js\tsconfig.json" />
-  </ItemGroup>
+  
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.2" />
-  </ItemGroup>
-  <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.2" />
   </ItemGroup>
+  
   <ItemGroup>
-    <None Include="Pages\index.cshtml" />
-    <None Include="src\js\package.json" />
-    <None Include="Pages\layout.cshtml" />
+    <Content Remove="**\*.config" />
+    <Content Remove="**\*.cshtml" />
+    <Content Remove="**\*.json" />
+    <Content Remove="**\*.resx" /> 
   </ItemGroup>
+  
   <ItemGroup>
-    <TypeScriptCompile Include="src\js\components\status\loading.ts" />
-    <TypeScriptCompile Include="src\js\components\widgets\grid-options.ts" />
-    <TypeScriptCompile Include="src\js\components\widgets\grid.ts" />
-    <TypeScriptCompile Include="src\js\pages\about.test.ts" />
-    <TypeScriptCompile Include="src\js\pages\about.ts" />
-    <TypeScriptCompile Include="src\js\pages\home.ts" />
-    <TypeScriptCompile Include="src\js\components\page\nav-bar.ts" />
-    <TypeScriptCompile Include="src\js\components\page\page-footer.ts" />
-    <TypeScriptCompile Include="src\js\components\page\page-header.ts" />
-    <TypeScriptCompile Include="src\js\services\compare-service.ts" />
-    <TypeScriptCompile Include="src\js\services\dom-service.ts" />
-    <TypeScriptCompile Include="src\js\app.ts" />
+    <EmbeddedResource Remove="**\*.resx" />
   </ItemGroup>
+  
+  <ItemGroup>
+    <Folder Remove="**\" />
+  </ItemGroup>
+  
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
     <TypeScriptTarget>ES5</TypeScriptTarget>
     <TypeScriptJSXEmit>None</TypeScriptJSXEmit>
-    <TypeScriptModuleKind />
-    <TypeScriptCompileOnSaveEnabled>True</TypeScriptCompileOnSaveEnabled>
+    <TypeScriptModuleKind>ES6</TypeScriptModuleKind>
+    <TypeScriptCompileOnSaveEnabled>False</TypeScriptCompileOnSaveEnabled>
     <TypeScriptNoImplicitAny>False</TypeScriptNoImplicitAny>
     <TypeScriptRemoveComments>False</TypeScriptRemoveComments>
-    <TypeScriptOutFile>typescript-output.js</TypeScriptOutFile>
-    <TypeScriptOutDir />
+    <TypeScriptOutFile />
+    <TypeScriptOutDir>dist</TypeScriptOutDir>
     <TypeScriptGeneratesDeclarations>False</TypeScriptGeneratesDeclarations>
     <TypeScriptNoEmitOnError>True</TypeScriptNoEmitOnError>
     <TypeScriptSourceMap>True</TypeScriptSourceMap>
     <TypeScriptMapRoot />
     <TypeScriptSourceRoot />
-  </PropertyGroup>
+  </PropertyGroup> 
 </Project>
