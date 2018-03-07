@@ -2,32 +2,33 @@
 
 import { loading } from '../components/status/loading';
 
-  let version = '';
-  let isLoading = false;
+let version = '';
+let isLoading = false;
 
-  function getVersion() {
-    return m.request({ url: 'api/sampleapi/version', data: { r: Date.now() } });
-  }
+function getVersion() {
+  return m.request({ url: 'api/sampleapi/version', data: { r: Date.now() } });
+}
 
-  function oncreate() {
-    isLoading = true;
-    // next version of Mithril will have finally
-    getVersion()
-      .then((rs: string) => version = rs)
-      .catch((rj: string) => version = rj)
-      .then(() => isLoading = false)
-      .catch(() => isLoading = false);
-  }
+function oncreate() {
+  isLoading = true;
+  // next version of Mithril will have finally
+  getVersion()
+    .then(rs => version = rs as string)
+    .catch(rj => version = rj as string)
+    .then(() => isLoading = false)
+    .catch(() => isLoading = false);
+}
 
-  function view() {
-    return m('div', [
-      m('h2', "I'm an aboot page"),
-      m(loading, { style: { visibility: isLoading ? 'visible' : 'hidden' } }),
+function view() {
+  return m('div', [
+    m('h2', "I'm an aboot page"), [
+      m(loading, { style: { visibility: (isLoading ? 'visible' : 'hidden') } } as any),
       m('p', `version: ${version}`)
-    ]);
-  }
+    ]
+  ]);
+}
 
-  export var about = {
-    oncreate: oncreate,
-    view: view
-  }
+export var about = {
+  oncreate: oncreate,
+  view: view
+}
