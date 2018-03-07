@@ -22,8 +22,8 @@ function oncreate() {
 function view() {
   return m('div', [
     m('h2', "I'm an aboot page"), [
-      m(loading, { style: { visibility: (isLoading ? 'visible' : 'hidden') } } as any),
-      m('p', `version: ${version}`)
+      m('span', `version: ${version}`),
+      m(loading, { style: { visibility: (isLoading ? 'visible' : 'hidden') } } as any)
     ]
   ]);
 }
