@@ -7,7 +7,7 @@ test('home page has correct tags', () => {
   var out = mq(login);
   out.should.have('div');
   out.should.have('h2');
-  out.should.have('form[method="POST"]');
+  out.should.have('form[method="post"]');
   out.should.have('input#email');
   out.should.have('input#password');
   out.should.have('button#submit');

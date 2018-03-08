@@ -1,17 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using SampleCore.Models.Account.User;
 
 namespace SampleCore.Pages.Account.User
 {
     public class LoginModel : PageModel
     {
-        public void OnGet()
-        {
+        [BindProperty]
+        public UserModel UserModel { get; set; }
 
+        public IActionResult OnPost()
+        {
+            return UserModel.Email == "admin@admin.com" && UserModel.Password == "admin" 
+                ? (IActionResult) RedirectToPage("~/home") 
+                : Page();
         }
     }
 }

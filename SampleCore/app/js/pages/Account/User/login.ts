@@ -6,7 +6,7 @@ function view() {
       m('h2', 'Login'),
       m('h2.error-text', ''),
 
-      m(`form.pure-form.pure-form-stacked[method="POST"])`, [
+      m(`form.pure-form.pure-form-stacked[method="post"])`, [
 
         m('div.pure-control-group', [
           m('label[for="email"]', 'Email'),
@@ -21,7 +21,6 @@ function view() {
         m('div.pure-control-group[style=margin-top:1em]', [
           m('button.pure-button.pure-button-primary[id="submit"][type="submit"]', 'Log In')
         ])
-
       ])
     ])
   ]);
