@@ -7,7 +7,8 @@ Personal starter project using ASP.NET Core and Mithril JS.
 ## Prerequisites
 
 1. [Parcel](https://parceljs.org/)
-2. Visual Studio
+2. Gulp command line
+3. Visual Studio
 
 
 ## Get Started
@@ -30,8 +31,8 @@ Personal starter project using ASP.NET Core and Mithril JS.
        user: admin@admin.com
        password: admin
 
-## Running Tests
+## Development
 
     npm test      // runs all tests once
-    npm start     // starts parcel file watcher
     npm run build // build release asssets
+    gulp          // watches and updates buils

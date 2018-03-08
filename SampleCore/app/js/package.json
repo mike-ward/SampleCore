@@ -3,11 +3,9 @@
   "version": "0.0.1",
   "main": "../../../wwwwroot/app.js",
   "scripts": {
+    "test": "npx jest",
     "build": "parcel build app.ts --out-dir ../../wwwroot --no-cache",
-    "start": "parcel watch app.ts --out-dir ../../wwwroot",
-    "test": "jest",
-    "dev-build": "parcel build app.ts --out-dir ../../wwwroot --no-minify",
-    "dev-start": "parcel watch app.ts --out-dir ../../wwwroot --no-minify"
+    "dev-build": "parcel build app.ts --out-dir ../../wwwroot --no-minify"
   },
   "author": "Mike Ward",
   "license": "ISC",
@@ -18,8 +16,12 @@
   "devDependencies": {
     "@types/jest": "22.1.4",
     "@types/mithril": "1.1.12",
+    "gulp": "3.9.1",
+    "gulp-npm-run": "0.0.3",
+    "gulp-run": "1.7.1",
     "jest": "22.4.2",
     "mithril-query": "2.3.0",
+    "run-sequence": "2.2.1",
     "ts-jest": "22.4.1",
     "typescript": "2.7.2"
   },
