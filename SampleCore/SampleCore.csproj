@@ -7,6 +7,7 @@
   
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.2" />
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.2" />
   </ItemGroup>
   
@@ -30,6 +31,9 @@
   </ItemGroup>
   
   <ItemGroup>
+    <None Remove="app\js\pages\Account\User\login.ts" />
+    <None Remove="app\js\pages\error.test.ts" />
+    <None Remove="app\js\pages\error.ts" />
     <None Remove="SampleCore.csproj.DotSettings" />
   </ItemGroup>
   
@@ -41,6 +45,16 @@
     <Content Include="Pages\layout.cshtml" />
     <Content Include="app\js\package-lock.json" />
     <Content Include="app\js\package.json" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Include="Pages\Account\User\login.cshtml" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <TypeScriptCompile Include="app\js\pages\Account\User\login.ts" />
+    <TypeScriptCompile Include="app\js\pages\error.test.ts" />
+    <TypeScriptCompile Include="app\js\pages\error.ts" />
   </ItemGroup>
   
   <Target Name="BuildAssets" AfterTargets="BeforePublish">
