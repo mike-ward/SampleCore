@@ -7,11 +7,11 @@ namespace SampleCore.Pages.Account.User
     public class LoginModel : PageModel
     {
         [BindProperty]
-        public UserModel UserModel { get; set; }
+        public UserIdentity UserIdentity { get; set; }
 
         public IActionResult OnPost()
         {
-            return UserModel.Email == "admin@admin.com" && UserModel.Password == "admin" 
+            return UserIdentity.Email == "admin@admin.com" && UserIdentity.Password == "admin" 
                 ? (IActionResult) RedirectToPage("/home") 
                 : Page();
         }
