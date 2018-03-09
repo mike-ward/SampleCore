@@ -1,4 +1,5 @@
 ﻿import * as m from 'mithril';
+import { formVerificationToken } from '../../../components/page/asp-net-verification-token';
 
 function view() {
   return m('view', [
@@ -21,12 +22,12 @@ function view() {
           m('button.pure-button.pure-button-primary[id="submit"][type="submit"]', 'Log In')
         ]),
 
-        m(`input[name="__RequestVerificationToken"][type="hidden"][value="${(window as any).antiforgeryToken}"]`)
+        m(formVerificationToken)
       ])
     ])
   ]);
 }
 
-export var login = {
+export const login = {
   view: view
 }

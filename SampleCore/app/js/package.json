@@ -14,7 +14,7 @@
     "purecss": "1.0.0"
   },
   "devDependencies": {
-    "@types/jest": "22.1.4",
+    "@types/jest": "22.2.0",
     "@types/mithril": "1.1.12",
     "gulp": "3.9.1",
     "gulp-npm-run": "0.0.3",

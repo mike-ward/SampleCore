@@ -11,4 +11,5 @@ test('home page has correct tags', () => {
   out.should.have('input#email');
   out.should.have('input#password');
   out.should.have('button#submit');
+  out.should.have('input[name="__RequestVerificationToken"]');
 });
