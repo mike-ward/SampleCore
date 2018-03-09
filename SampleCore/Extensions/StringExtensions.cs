@@ -18,5 +18,25 @@ namespace SampleCore.Extensions
                 return string.Join(null, bytes.Select(b => b.ToString("x2", CultureInfo.InvariantCulture)));
             }
         }
+
+        public static bool IsEqualTo(this string a, string b)
+        {
+            return string.CompareOrdinal(a, b) == 0;
+        }
+
+        public static bool IsNotEqualTo(this string a, string b)
+        {
+            return string.CompareOrdinal(a, b) != 0;
+        }
+
+        public static bool IsEqualToIgnoreCase(this string a, string b)
+        {
+            return string.Compare(a, b, StringComparison.OrdinalIgnoreCase) == 0;
+        }
+
+        public static bool IsNotEqualToIgnoreCase(this string a, string b)
+        {
+            return string.Compare(a, b, StringComparison.OrdinalIgnoreCase) != 0;
+        }
     }
 }

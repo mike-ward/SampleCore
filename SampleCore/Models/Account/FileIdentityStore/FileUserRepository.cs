@@ -4,6 +4,7 @@ using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using SampleCore.Helpers;
 using SampleCore.Models.Account.User;
 
 namespace SampleCore.Models.Account.FileIdentityStore
@@ -41,6 +42,8 @@ namespace SampleCore.Models.Account.FileIdentityStore
 
         public static async Task WriteUsers(IEnumerable<UserIdentity> users)
         {
+            Require.NotNull(users, nameof(users));
+
             try
             {
                 LockObj.AcquireWriterLock(TimeSpan.FromSeconds(TimeoutInSeconds));
