@@ -12,7 +12,7 @@ namespace SampleCore.Pages.Account.User
         public IActionResult OnPost()
         {
             return UserModel.Email == "admin@admin.com" && UserModel.Password == "admin" 
-                ? (IActionResult) RedirectToPage("~/home") 
+                ? (IActionResult) RedirectToPage("/home") 
                 : Page();
         }
     }
