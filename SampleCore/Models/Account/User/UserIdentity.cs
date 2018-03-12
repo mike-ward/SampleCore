@@ -1,9 +1,9 @@
 ﻿using System;
-using Microsoft.AspNetCore.Mvc.Internal;
+using SampleCore.Infrastructure;
 
 namespace SampleCore.Models.Account.User
 {
-    public class UserIdentity
+    public class UserIdentity : IUserIdentity
     {
         public UserIdentity()
         {

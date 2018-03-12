@@ -5,11 +5,12 @@ using System.Threading;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using SampleCore.Helpers;
+using SampleCore.Infrastructure;
 using SampleCore.Models.Account.User;
 
 namespace SampleCore.Models.Account.FileIdentityStore
 {
-    public static class FileRepository
+    public class FileBasedUserRepository : IUserRepository
     {
         private const int TimeoutInSeconds = 2;
         private static readonly ReaderWriterLock LockObj = new ReaderWriterLock();
@@ -19,7 +20,7 @@ namespace SampleCore.Models.Account.FileIdentityStore
             return "App_Data/userdata.dat";
         }
 
-        public static async Task<List<UserIdentity>> ReadUsers()
+        public async Task<List<UserIdentity>> ReadUsersAsync()
         {
             try
             {
@@ -40,7 +41,7 @@ namespace SampleCore.Models.Account.FileIdentityStore
             }
         }
 
-        public static async Task WriteUsers(IEnumerable<UserIdentity> users)
+        public async Task WriteUsersAsync(IEnumerable<UserIdentity> users)
         {
             Require.NotNull(users, nameof(users));
 

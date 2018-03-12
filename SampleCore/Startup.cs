@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using SampleCore.Infrastructure;
+using SampleCore.Models.Account.FileIdentityStore;
 using SampleCore.Models.Account.User;
 
 namespace SampleCore
@@ -53,7 +55,8 @@ namespace SampleCore
                     options.Conventions.AllowAnonymousToPage("/Account/User/Login");
                 });
 
-            services.AddTransient(serviceProvider => new UserManager());
+            services.AddTransient<IUserManager, UserManager>();
+            services.AddTransient<IUserRepository, FileBasedUserRepository>();
         }
 
         private static void ConfigureEnvironment(IApplicationBuilder app, IHostingEnvironment env)

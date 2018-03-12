@@ -2,15 +2,16 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using SampleCore.Infrastructure;
 using SampleCore.Models.Account.User;
 
 namespace SampleCore.Pages.Account.User
 {
     public class LoginModel : PageModel
     {
-        private readonly UserManager _userManager;
+        private readonly IUserManager _userManager;
 
-        public LoginModel(UserManager userManager)
+        public LoginModel(IUserManager userManager)
         {
             _userManager = userManager;
         }
