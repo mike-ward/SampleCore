@@ -11,7 +11,7 @@ namespace SampleCore.Models.Account.User
         }
 
         public Guid Id { get; set; }
-        public string UserName;
+        public string UserName { get; set; }
         public string Password { get; set; }
         public string Claims { get; set; } = "";
         public string Email { get; set; } = "";

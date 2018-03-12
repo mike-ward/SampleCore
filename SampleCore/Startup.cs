@@ -1,7 +1,9 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using SampleCore.Models.Account.User;
 
 namespace SampleCore
 {
@@ -17,15 +19,41 @@ namespace SampleCore
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddResponseCompression();
-            services.AddMvc();
+            ConfigureAuthenticationServices(services);
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             ConfigureEnvironment(app, env);
             app.UseResponseCompression();
+            app.UseAuthentication();
             app.UseStaticFiles();
             app.UseMvc();
+
+        }
+
+        private static void ConfigureAuthenticationServices(IServiceCollection services)
+        {
+            services
+                .AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme,
+                    options =>
+                    {
+                        options.LoginPath = "/Account/User/login";
+                        options.LogoutPath = "/Account/User/logout";
+                    });
+
+            services
+                .AddMvc()
+                .AddRazorPagesOptions(options =>
+                {
+                    options.Conventions.AuthorizeFolder("/");
+                    options.Conventions.AllowAnonymousToPage("/Index");
+                    options.Conventions.AllowAnonymousToPage("/About");
+                    options.Conventions.AllowAnonymousToPage("/Account/User/Login");
+                });
+
+            services.AddTransient(serviceProvider => new UserManager());
         }
 
         private static void ConfigureEnvironment(IApplicationBuilder app, IHostingEnvironment env)
