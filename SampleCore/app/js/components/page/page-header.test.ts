@@ -16,5 +16,5 @@ test('page-header should contain menu', () => {
   var out = mq(pageHeader, { options: navbarOptions });
   out.should.have('.header');
   out.should.have('.nav-bar');
-  out.should.have(4, 'a');
+  out.should.have(5, 'a');
 })

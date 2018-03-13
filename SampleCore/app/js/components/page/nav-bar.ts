@@ -25,6 +25,5 @@ const css = `
 loadStyles(css);
 
 export const navBar = {
-  view: view,
-  css: css
+  view: view
 }

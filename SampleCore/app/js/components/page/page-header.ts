@@ -1,6 +1,6 @@
 ﻿import * as m from 'mithril';
 import { loadStyles } from '../../services/dom-service';
-
+import { userBar } from './user-bar';
 import { navBar } from './nav-bar';
 
 // language=CSS
@@ -19,6 +19,7 @@ const navbarOptions = {
 function view() {
   return m(
     '.header', [
+      m(userBar),
       m('h1', 'My Application Title'),
       m(navBar, { options: navbarOptions }),
       m('hr')

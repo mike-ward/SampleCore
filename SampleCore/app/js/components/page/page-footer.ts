@@ -14,6 +14,5 @@ const css = `.footer{margin-top:5rem;}`;
 loadStyles(css);
 
 export const pageFooter = {
-  view: view,
-  css: css
+  view: view
 }
