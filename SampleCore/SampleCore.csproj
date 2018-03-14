@@ -37,6 +37,7 @@
   
   <ItemGroup>
     <None Remove="app\js\components\page\asp-net-verification-token.ts" />
+    <None Remove="app\js\components\page\user-bar.test.ts" />
     <None Remove="app\js\components\page\user-bar.ts" />
     <None Remove="app\js\pages\Account\User\login.ts" />
     <None Remove="app\js\pages\error.test.ts" />
@@ -60,6 +61,7 @@
   
   <ItemGroup>
     <TypeScriptCompile Include="app\js\components\page\asp-net-verification-token.ts" />
+    <TypeScriptCompile Include="app\js\components\page\user-bar.test.ts" />
     <TypeScriptCompile Include="app\js\components\page\user-bar.ts" />
     <TypeScriptCompile Include="app\js\pages\Account\User\login.ts" />
     <TypeScriptCompile Include="app\js\pages\error.test.ts" />

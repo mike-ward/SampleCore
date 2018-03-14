@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Security.Authentication;
 using System.Security.Claims;
@@ -23,12 +22,21 @@ namespace SampleCore.Models.Account.User
             _userRepository = userRepository;
         }
 
-        public async Task SigninAysnc(HttpContext context, UserIdentity userIdentity)
+        public async Task SigninAysnc(HttpContext context, IUserIdentity userIdentity)
         {
-            if (userIdentity.Email != "admin@admin.com" || userIdentity.Password != "admin")
+            var users = await _userRepository.ReadUsersAsync();
+
+            var user = users.SingleOrDefault(usr => 
+                usr.Email.IsEqualToIgnoreCase(userIdentity.Email) && 
+                usr.Password.IsEqualTo(userIdentity.Password.HashPassword(usr.Id)));
+
+            if (user == null)
             {
                 throw new AuthenticationException("Unknown user or password");
             }
+
+            user.LoggedIn = DateTime.UtcNow;
+            await _userRepository.WriteUsersAsync(users);
 
             var identity = new ClaimsIdentity(CreateUserClaims(userIdentity), CookieAuthenticationDefaults.AuthenticationScheme);
             var principal = new ClaimsPrincipal(identity);
@@ -40,7 +48,7 @@ namespace SampleCore.Models.Account.User
             await context.SignOutAsync();
         }
 
-        public async Task CreateUser(UserIdentity userIdentity)
+        public async Task CreateUser(IUserIdentity userIdentity)
         {
             Require.NotNull(userIdentity, nameof(userIdentity));
             Require.ArgumentNotNullEmpty(userIdentity.Email, nameof(userIdentity.Email));
@@ -54,7 +62,7 @@ namespace SampleCore.Models.Account.User
             await _userRepository.WriteUsersAsync(users);
         }
 
-        public async Task DeleteUser(UserIdentity userIdentity)
+        public async Task DeleteUser(IUserIdentity userIdentity)
         {
             Require.NotNull(userIdentity, nameof(userIdentity));
             Require.ArgumentNotNullEmpty(userIdentity.Email, nameof(userIdentity.Email));
@@ -67,7 +75,7 @@ namespace SampleCore.Models.Account.User
             await _userRepository.WriteUsersAsync(users);
         }
 
-        public async Task UpdateUser(UserIdentity userIdentity)
+        public async Task UpdateUser(IUserIdentity userIdentity)
         {
             Require.NotNull(userIdentity, nameof(userIdentity));
             Require.ArgumentNotNullEmpty(userIdentity.Email, nameof(userIdentity.Email));
@@ -84,7 +92,7 @@ namespace SampleCore.Models.Account.User
             await _userRepository.WriteUsersAsync(users);
         }
 
-        public async Task<UserIdentity> FindUser(Guid id)
+        public async Task<IUserIdentity> FindUser(Guid id)
         {
             Require.True(() => id != Guid.Empty);
             var users = await _userRepository.ReadUsersAsync();
@@ -92,7 +100,7 @@ namespace SampleCore.Models.Account.User
             return user;
         }
 
-        private static IEnumerable<Claim> CreateUserClaims(UserIdentity user)
+        private static IEnumerable<Claim> CreateUserClaims(IUserIdentity user)
         {
             var claims = new List<Claim>
             {

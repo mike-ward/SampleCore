@@ -70,6 +70,7 @@ namespace SampleCore
                     options.Conventions.AllowAnonymousToPage("/Account/User/Login");
                 });
 
+            services.AddTransient<IUserIdentity, UserIdentity>();
             services.AddTransient<IUserManager, UserManager>();
             services.AddTransient<IUserRepository, FileBasedUserRepository>();
         }
