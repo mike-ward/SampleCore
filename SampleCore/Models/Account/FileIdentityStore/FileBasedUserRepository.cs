@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using SampleCore.Extensions;
@@ -14,6 +15,7 @@ namespace SampleCore.Models.Account.FileIdentityStore
     public class FileBasedUserRepository : IUserRepository
     {
         private readonly IUserIdentity _userIdentity;
+        private static readonly SemaphoreSlim  _lock = new SemaphoreSlim(1);
 
         public FileBasedUserRepository(IUserIdentity userIdentity)
         {
@@ -42,7 +44,17 @@ namespace SampleCore.Models.Account.FileIdentityStore
                 await CreateRepository(_userIdentity);
             }
 
-            var content = File.ReadAllText(path);
+            string content;
+            await _lock.WaitAsync();
+            try
+            {
+                content = File.ReadAllText(path);
+            }
+            finally
+            {
+                _lock.Release();
+            }
+
             var users = JsonConvert.DeserializeObject<List<UserIdentity>>(content);
             return users.Cast<IUserIdentity>().ToList();
         }
@@ -70,7 +82,16 @@ namespace SampleCore.Models.Account.FileIdentityStore
             }
 
             var content = JsonConvert.SerializeObject(users, Formatting.Indented);
-            await File.WriteAllTextAsync(path, content);
+
+            await _lock.WaitAsync();
+            try
+            {
+                await File.WriteAllTextAsync(path, content);
+            }
+            finally
+            {
+                _lock.Release();
+            }
 
             File.Delete(backup);
         }

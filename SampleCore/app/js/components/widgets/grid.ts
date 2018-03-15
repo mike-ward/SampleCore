@@ -1,9 +1,9 @@
 ﻿import * as m from 'mithril';
-import { GridOptions, GridColumn } from './grid-options';
+import { IGridOptions, IGridColumn } from './grid-options';
 import { compareService } from '../../services/compare-service';
 import { loadStyles } from '../../services/dom-service';
 
-function head(gridOptions: GridOptions, state: any) {
+function head(gridOptions: IGridOptions, state: any) {
   const thead = m('thead', [
     m('tr', visibleColumns(gridOptions.columns)
       .map(column => columnHead(column, state))
@@ -12,7 +12,7 @@ function head(gridOptions: GridOptions, state: any) {
   return thead;
 }
 
-function body(gridOptions: GridOptions, state: any) {
+function body(gridOptions: IGridOptions, state: any) {
   const data = sortByColumn(gridOptions, state);
   const columns = visibleColumns(gridOptions.columns);
   const tbody = m('tbody', [
@@ -22,11 +22,11 @@ function body(gridOptions: GridOptions, state: any) {
   return tbody;
 }
 
-function visibleColumns(columns: GridColumn[]) {
+function visibleColumns(columns: IGridColumn[]) {
   return columns.filter(c => !c.hide);
 }
 
-function columnHead(column: GridColumn, state: any) {
+function columnHead(column: IGridColumn, state: any) {
   return m('th.grid-column-title',
     {
       title: column.tooltip || '',
@@ -38,7 +38,7 @@ function columnHead(column: GridColumn, state: any) {
   );
 }
 
-function renderCell(row: {}, column: GridColumn) {
+function renderCell(row: {}, column: IGridColumn) {
   const value = columnValue(row, column);
   return m('td',
     {
@@ -49,12 +49,12 @@ function renderCell(row: {}, column: GridColumn) {
     column.renderer ? column.renderer(value) : value);
 }
 
-function columnValue(row: any, column: GridColumn) {
+function columnValue(row: any, column: IGridColumn) {
   const value = row[column.id];
   return value === null || value === undefined ? column.contentIfNull : value;
 }
 
-function sortIndicator(column: GridColumn, state: any) {
+function sortIndicator(column: IGridColumn, state: any) {
   if (!column.allowSort) return '';
   const isSorted = column.id === state.sortedColumnId;
   const sortSymbol = isSorted && !state.sortDirection ? '▼' : '▲';
@@ -63,7 +63,7 @@ function sortIndicator(column: GridColumn, state: any) {
   return vn;
 }
 
-function sortByColumn(gridOptions: GridOptions, state: any) {
+function sortByColumn(gridOptions: IGridOptions, state: any) {
   const data = gridOptions.data.slice();
   if (!state.sortedColumnId) return data;
   const columnId = state.sortedColumnId;
@@ -81,11 +81,11 @@ function sortByColumn(gridOptions: GridOptions, state: any) {
   return data;
 }
 
-function titleClickActions(column: GridColumn, state: any) {
+function titleClickActions(column: IGridColumn, state: any) {
   if (column.allowSort) columnSortAction(column, state);
 }
 
-function columnSortAction(column: GridColumn, state: any) {
+function columnSortAction(column: IGridColumn, state: any) {
   state.sortDirection = state.sortedColumnId === column.id
     ? !state.sortDirection
     : true;
@@ -96,7 +96,7 @@ function columnSortAction(column: GridColumn, state: any) {
 }
 
 function view(vnode: any) {
-  const gridOptions = vnode.attrs.gridOptions as GridOptions;
+  const gridOptions = vnode.attrs.gridOptions as IGridOptions;
   if (!gridOptions) return null;
 
   const vdom = m('.grid', vnode.attrs, [
@@ -121,7 +121,6 @@ const css = `
 loadStyles(css);
 
 export const grid = {
-  view: view,
-  css: css
+  view: view
 }
 

@@ -10,11 +10,12 @@ import { home } from './pages/home';
 import { about } from './pages/about';
 import { error } from './pages/error';
 import { login } from './pages/account/user/login';
+import { adminDashboard} from './pages/account/admin/dashboard';
 import { pageHeader } from './components/page/page-header';
 import { pageFooter } from './components/page/page-footer';
 import { loadStyles } from './services/dom-service';
 
-const pages = { home, about, error, login };
+const pages = { home, about, error, login, adminDashboard };
 
 // language=CSS
 const css = `

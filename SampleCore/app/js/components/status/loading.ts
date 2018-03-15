@@ -13,6 +13,5 @@ const css = `.loading-img { height: 16px; width: 16px; vertical-align: middle}`;
 loadStyles(css);
 
 export const loading = {
-  view: view,
-  css: css
+  view: view
 }

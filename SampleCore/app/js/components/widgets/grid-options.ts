@@ -1,9 +1,9 @@
-﻿export type GridOptions = {
-  columns: GridColumn[];
+﻿export interface IGridOptions  {
+  columns: IGridColumn[];
   data: {}[];
 }
 
-export type GridColumn = {
+export interface IGridColumn {
   id: string;
   title: string;
   tooltip?: string;
