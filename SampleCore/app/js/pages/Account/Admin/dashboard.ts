@@ -89,7 +89,7 @@ function view() {
       m('h2', 'Administrator Dashboard'),
       m('h3.error-text', errorMessage),
       m('.admin-dashboard-buttons', [
-        m('a.pure-button', { href: 'account/admin/add-user' }, 'Add User'),
+        m('a.pure-button', { href: 'account/admin/addUser' }, 'Add User'),
         m('a.pure-button', { href: 'account/admin/system-information' }, 'System Information'),
         m(loading, { style: { visibility: (isLoading ? 'visible' : 'hidden') } } as any)
       ]),

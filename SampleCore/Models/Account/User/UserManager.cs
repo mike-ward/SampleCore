@@ -38,8 +38,9 @@ namespace SampleCore.Models.Account.User
             user.LoggedIn = DateTime.UtcNow;
             await _userRepository.WriteUsersAsync(users);
 
-            var identity = new ClaimsIdentity(CreateUserClaims(userIdentity), CookieAuthenticationDefaults.AuthenticationScheme);
+            var identity = new ClaimsIdentity(CreateUserClaims(user), CookieAuthenticationDefaults.AuthenticationScheme);
             var principal = new ClaimsPrincipal(identity);
+
             await context.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
         }
 
@@ -58,6 +59,7 @@ namespace SampleCore.Models.Account.User
             if (users.Any(user => user.Email.IsEqualToIgnoreCase(userIdentity.Email))) throw new AuthenticationException("User already exists");
 
             userIdentity.Password = userIdentity.Password.HashPassword(userIdentity.Id);
+            if (string.IsNullOrWhiteSpace(userIdentity.UserName)) userIdentity.UserName = userIdentity.Email;
             users.Add(userIdentity);
             await _userRepository.WriteUsersAsync(users);
         }
@@ -102,12 +104,10 @@ namespace SampleCore.Models.Account.User
 
         private static IEnumerable<Claim> CreateUserClaims(IUserIdentity user)
         {
-            var claims = new List<Claim>
-            {
-                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-                new Claim(ClaimTypes.Email, user.Email)
-            };
-
+            var userClaims = string.IsNullOrWhiteSpace(user.Claims) ? new string[0] : user.Claims.Split(",");
+            var claims = userClaims.Select(claim => new Claim(ClaimTypes.Role, claim)).ToList();
+            claims.Add(new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()));
+            claims.Add(new Claim(ClaimTypes.Email, user.Email));
             return claims;
         }
     }

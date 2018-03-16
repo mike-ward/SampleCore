@@ -40,6 +40,7 @@
     <None Remove="app\js\components\page\asp-net-verification-token.ts" />
     <None Remove="app\js\components\page\user-bar.ts" />
     <None Remove="app\js\components\page\user-bar~test.ts" />
+    <None Remove="app\js\pages\Account\Admin\add-user.ts" />
     <None Remove="app\js\pages\Account\Admin\dashboard.ts" />
     <None Remove="app\js\pages\Account\Admin\dashboard~test.ts" />
     <None Remove="app\js\pages\Account\User\login.ts" />
@@ -62,6 +63,7 @@
   </ItemGroup>
   
   <ItemGroup>
+    <None Include="Pages\Account\Admin\AddUser.cshtml" />
     <None Include="Pages\Account\Admin\Dashboard.cshtml" />
     <None Include="Pages\Account\User\login.cshtml" />
   </ItemGroup>
@@ -70,6 +72,7 @@
     <TypeScriptCompile Include="app\js\components\page\asp-net-verification-token.ts" />
     <TypeScriptCompile Include="app\js\components\page\user-bar~test.ts" />
     <TypeScriptCompile Include="app\js\components\page\user-bar.ts" />
+    <TypeScriptCompile Include="app\js\pages\Account\Admin\add-user.ts" />
     <TypeScriptCompile Include="app\js\pages\Account\Admin\dashboard~test.ts" />
     <TypeScriptCompile Include="app\js\pages\Account\Admin\dashboard.ts" />
     <TypeScriptCompile Include="app\js\pages\Account\User\login.ts" />

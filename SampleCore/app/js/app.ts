@@ -11,11 +11,12 @@ import { about } from './pages/about';
 import { error } from './pages/error';
 import { login } from './pages/account/user/login';
 import { adminDashboard} from './pages/account/admin/dashboard';
+import { adminAddUser} from './pages/account/admin/add-user';
 import { pageHeader } from './components/page/page-header';
 import { pageFooter } from './components/page/page-footer';
 import { loadStyles } from './services/dom-service';
 
-const pages = { home, about, error, login, adminDashboard };
+const pages = { home, about, error, login, adminDashboard, adminAddUser };
 
 // language=CSS
 const css = `

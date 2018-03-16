@@ -18,6 +18,7 @@ namespace SampleCore.Controllers.Account.Admin
         }
 
         [HttpGet("all-users")]
+        [Authorize(Policy = "administrator")]
         public async Task<IEnumerable<IUserIdentity>> AllUsers()
         {
             return await _userRepository.ReadUsersAsync();

@@ -1,4 +1,6 @@
 using System;
+using System.Diagnostics;
+using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -16,6 +18,7 @@ namespace SampleCore
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            Microsoft.ApplicationInsights.Extensibility.Implementation.TelemetryDebugWriter.IsTracingDisabled = Debugger.IsAttached;
         }
 
         public IConfiguration Configuration { get; }
@@ -60,11 +63,15 @@ namespace SampleCore
                         options.LogoutPath = "/Account/User/logout";
                     });
 
+            services.AddAuthorization(options => options.AddPolicy("administrator", 
+                policy => policy.RequireClaim(ClaimTypes.Role, "admin")));
+
             services
                 .AddMvc()
                 .AddRazorPagesOptions(options =>
                 {
                     options.Conventions.AuthorizeFolder("/");
+                    options.Conventions.AuthorizeFolder("/Account/Admin", "administrator");
                     options.Conventions.AllowAnonymousToPage("/Index");
                     options.Conventions.AllowAnonymousToPage("/About");
                     options.Conventions.AllowAnonymousToPage("/Account/User/Login");
