@@ -86,5 +86,9 @@
   <Target Name="BuildAssets" AfterTargets="BeforePublish">
     <Exec Command="cd $(ProjectDir)\app\js&#xD;&#xA;npm run build" />
   </Target>
+  
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="cd app\js&#xD;&#xA;set FORCE_COLOR=0&#xD;&#xA;IF $(ConfigurationName) == Debug (npm run dev-build) else (npm run build)" />
+  </Target>
 
 </Project>
