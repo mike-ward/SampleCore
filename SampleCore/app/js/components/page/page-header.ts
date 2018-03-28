@@ -21,7 +21,7 @@ function view() {
     '.header', [
       m(userBar),
       m('h1', 'My Application Title'),
-      m(navBar, { options: navbarOptions }),
+      m(navBar, { 'options': navbarOptions }),
       m('hr')
     ]);
 }
