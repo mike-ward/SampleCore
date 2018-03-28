@@ -63,9 +63,9 @@
   </ItemGroup>
   
   <ItemGroup>
-    <None Include="Pages\Account\Admin\AddUser.cshtml" />
-    <None Include="Pages\Account\Admin\Dashboard.cshtml" />
-    <None Include="Pages\Account\User\login.cshtml" />
+    <Content Include="Pages\Account\Admin\AddUser.cshtml" />
+    <Content Include="Pages\Account\Admin\Dashboard.cshtml" />
+    <Content Include="Pages\Account\User\login.cshtml" />
   </ItemGroup>
   
   <ItemGroup>

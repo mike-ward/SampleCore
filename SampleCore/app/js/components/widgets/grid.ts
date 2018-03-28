@@ -3,21 +3,21 @@ import { IGridOptions, IGridColumn } from './grid-options';
 import { compareService } from '../../services/compare-service';
 import { loadStyles } from '../../services/dom-service';
 
-function head(gridOptions: IGridOptions, state: any) {
+function thead(gridOptions: IGridOptions, state: any) {
   const thead = m('thead', [
     m('tr', visibleColumns(gridOptions.columns)
-      .map(column => columnHead(column, state))
+      .map(column => th(column, state))
     )
   ]);
   return thead;
 }
 
-function body(gridOptions: IGridOptions, state: any) {
+function tbody(gridOptions: IGridOptions, state: any) {
   const data = sortByColumn(gridOptions, state);
   const columns = visibleColumns(gridOptions.columns);
   const tbody = m('tbody', [
     data.map(row => m('tr',
-      columns.map(column => renderCell(row, column))))
+      columns.map(column => td(row, column))))
   ]);
   return tbody;
 }
@@ -26,7 +26,7 @@ function visibleColumns(columns: IGridColumn[]) {
   return columns.filter(c => !c.hide);
 }
 
-function columnHead(column: IGridColumn, state: any) {
+function th(column: IGridColumn, state: any) {
   return m('th.grid-column-title',
     {
       title: column.tooltip || '',
@@ -38,7 +38,7 @@ function columnHead(column: IGridColumn, state: any) {
   );
 }
 
-function renderCell(row: {}, column: IGridColumn) {
+function td(row: {}, column: IGridColumn) {
   const value = columnValue(row, column);
   return m('td',
     {
@@ -101,8 +101,8 @@ function view(vnode: any) {
 
   const vdom = m('.grid', vnode.attrs, [
     m('table.pure-table.pure-table-bordered', [
-      head(gridOptions, vnode.state),
-      body(gridOptions, vnode.state)
+      thead(gridOptions, vnode.state),
+      tbody(gridOptions, vnode.state)
     ])
   ]);
   return vdom;
@@ -110,13 +110,13 @@ function view(vnode: any) {
 
 // language=CSS
 const css = `
-      .grid th, .grid td{white-space:nowrap;}
-      .grid-click-action{cursor:pointer;}
-      .grid-click-action:hover{text-decoration: underline;}
-      .grid-column-title:hover{cursor:pointer;}
-      .grid-column-sort-indicator{margin-left:1em;}
-      .grid-column-sort-indicator-hidden{visibility:collapse;}
-      .grid-column-title:hover .grid-column-sort-indicator-hidden{color:gray !important;visibility:visible;}`;
+  .grid th, .grid td{white-space:nowrap;}
+  .grid-click-action{cursor:pointer;}
+  .grid-click-action:hover{text-decoration: underline;}
+  .grid-column-title:hover{cursor:pointer;}
+  .grid-column-sort-indicator{margin-left:1em;}
+  .grid-column-sort-indicator-hidden{visibility:collapse;}
+  .grid-column-title:hover .grid-column-sort-indicator-hidden{color:gray !important;visibility:visible;}`;
 
 loadStyles(css);
 
