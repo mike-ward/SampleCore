@@ -4,11 +4,8 @@ import { compareService } from '../../services/compare-service';
 import { loadStyles } from '../../services/dom-service';
 
 function thead(gridOptions: IGridOptions, state: any) {
-  const thead = m('thead', [
-    m('tr', visibleColumns(gridOptions.columns)
-      .map(column => th(column, state))
-    )
-  ]);
+  const columns = visibleColumns(gridOptions.columns);
+  const thead = m('thead', [m('tr', columns.map(column => th(column, state)))]);
   return thead;
 }
 
@@ -28,16 +25,13 @@ function th(column: IGridColumn, state: any) {
 function tbody(gridOptions: IGridOptions, state: any) {
   const data = sortByColumn(gridOptions, state);
   const columns = visibleColumns(gridOptions.columns);
-  const tbody = m('tbody', [
-    data.map(row => m('tr',
-      columns.map(column => td(row, column))))
-  ]);
+  const tbody = m('tbody', [data.map(row => m('tr', columns.map(column => td(row, column))))]);
   return tbody;
 }
 
 function td(row: {}, column: IGridColumn) {
   const value = columnValue(row, column);
-  const td =  m('td',
+  const td = m('td',
     {
       'class': column.cellClick ? 'grid-click-action' : undefined,
       title: column.cellTooltip ? column.cellTooltip(value) : undefined,
