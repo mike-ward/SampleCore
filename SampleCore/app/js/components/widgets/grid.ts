@@ -12,6 +12,19 @@ function thead(gridOptions: IGridOptions, state: any) {
   return thead;
 }
 
+function th(column: IGridColumn, state: any) {
+  const th = m('th.grid-column-title',
+    {
+      title: column.tooltip || '',
+      onclick: () => titleClickActions(column, state)
+    }, [
+      column.title,
+      sortIndicator(column, state)
+    ]
+  );
+  return th;
+}
+
 function tbody(gridOptions: IGridOptions, state: any) {
   const data = sortByColumn(gridOptions, state);
   const columns = visibleColumns(gridOptions.columns);
@@ -22,36 +35,26 @@ function tbody(gridOptions: IGridOptions, state: any) {
   return tbody;
 }
 
-function visibleColumns(columns: IGridColumn[]) {
-  return columns.filter(c => !c.hide);
-}
-
-function th(column: IGridColumn, state: any) {
-  return m('th.grid-column-title',
-    {
-      title: column.tooltip || '',
-      onclick: () => titleClickActions(column, state)
-    }, [
-      column.title,
-      sortIndicator(column, state)
-    ]
-  );
-}
-
 function td(row: {}, column: IGridColumn) {
   const value = columnValue(row, column);
-  return m('td',
+  const td =  m('td',
     {
       'class': column.cellClick ? 'grid-click-action' : undefined,
       title: column.cellTooltip ? column.cellTooltip(value) : undefined,
       onclick: () => column.cellClick ? column.cellClick(columnValue(row, column)) : undefined
     },
     column.renderer ? column.renderer(value) : value);
+  return td;
 }
 
 function columnValue(row: any, column: IGridColumn) {
   const value = row[column.id];
   return value === null || value === undefined ? column.contentIfNull : value;
+}
+
+function visibleColumns(columns: IGridColumn[]) {
+  const filtered = columns.filter(c => !c.hide);
+  return filtered;
 }
 
 function sortIndicator(column: IGridColumn, state: any) {
@@ -99,13 +102,13 @@ function view(vnode: any) {
   const gridOptions = vnode.attrs.gridOptions as IGridOptions;
   if (!gridOptions) return null;
 
-  const vdom = m('.grid', vnode.attrs, [
+  const vn = m('.grid', vnode.attrs, [
     m('table.pure-table.pure-table-bordered', [
       thead(gridOptions, vnode.state),
       tbody(gridOptions, vnode.state)
     ])
   ]);
-  return vdom;
+  return vn;
 }
 
 // language=CSS
