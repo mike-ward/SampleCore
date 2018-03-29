@@ -1,4 +1,4 @@
-﻿import * as m from 'mithril';
+﻿import m from 'mithril';
 import { IGridOptions, IGridColumn } from './grid-options';
 import { compareService } from '../../services/compare-service';
 import { loadStyles } from '../../services/dom-service';

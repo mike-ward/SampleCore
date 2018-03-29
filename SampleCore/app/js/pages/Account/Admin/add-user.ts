@@ -1,4 +1,4 @@
-﻿import * as m from 'mithril';
+﻿import m from 'mithril';
 import { formVerificationToken } from '../../../components/page/asp-net-verification-token';
 
 let errorMessage = '';

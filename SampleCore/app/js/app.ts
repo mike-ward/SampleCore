@@ -5,7 +5,7 @@ module.hot && module.hot.accept();
 if (!-[1,]) alert('Internet Explorer 7 and 8 are not supported');
 
 import 'purecss/build/pure-min.css';
-import * as m from 'mithril';
+import m from 'mithril';
 import { home } from './pages/home';
 import { about } from './pages/about';
 import { error } from './pages/error';
