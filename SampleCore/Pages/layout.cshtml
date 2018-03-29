@@ -9,8 +9,9 @@
   <title>Sample Core - @ViewBag.Title</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="~/app.css" rel="stylesheet" asp-append-version="true" />
-  <script src="~/app.js" asp-append-version="true"></script>
   <script>antiforgeryToken = @Json.Serialize(antiforgeryRequestToken);</script>
+  <script>var pageData = { title: '@ViewBag.Title', isAdmin: '@Context.User.IsInRole("admin")' === 'True' }</script>
+  <script src="~/app.js" asp-append-version="true"></script>
 </head>
 <body>
   <div id="header"></div>

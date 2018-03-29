@@ -20,7 +20,7 @@ function view() {
   return m(
     '.header', [
       m(userBar),
-      m('h1', 'My Application Title'),
+      m('h1[style=clear:both]', 'My Application Title'),
       m(navBar, { 'options': navbarOptions }),
       m('hr')
     ]);
