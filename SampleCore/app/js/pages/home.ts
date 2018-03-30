@@ -9,18 +9,19 @@ let gridOptions = { columns: [] as any[], data: [] as any[] } as IGridOptions;
 function view() {
   return m('div', [
     m('h2', 'Welcome'),
+    m('p[style="font-weight:bold"]', 'Most Active Stocks'),
     m(grid, { 'class': 'home-markets-grid', gridOptions: gridOptions })
   ]);
 }
 
 function oncreate() {
-  getMarkets()
+  getMostActive()
     .then(r => {gridOptions = loadGrid(r)})
     .catch(r => r);
 }
 
-function getMarkets() {
-  return m.request({ url: 'api/sampleapi/markets', data: { r: Date.now() } });
+function getMostActive() {
+  return m.request({ url: 'api/markets/mostactive', data: Date.now() });
 }
 
 function loadGrid(data: any) {

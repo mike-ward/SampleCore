@@ -6,7 +6,7 @@ let version = '';
 let isLoading = false;
 
 function getVersion() {
-  return m.request({ url: 'api/sampleapi/version', data: { r: Date.now() } });
+  return m.request({ url: 'api/sampleapi/version', data: Date.now() });
 }
 
 function oncreate() {
