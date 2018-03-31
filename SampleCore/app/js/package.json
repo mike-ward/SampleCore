@@ -6,7 +6,7 @@
     "test": "npx jest",
     "build": "parcel build app.ts --out-dir ../../wwwroot --no-cache",
     "dev-build": "parcel build app.ts --out-dir ../../wwwroot --no-minify",
-    "watch":  "parcel watch app.ts --out-dir ../../wwwroot"
+    "watch": "parcel watch app.ts --out-dir ../../wwwroot"
   },
   "author": "Mike Ward",
   "license": "ISC",
