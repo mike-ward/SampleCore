@@ -34,5 +34,8 @@ namespace SampleCore.Controllers.Api
 
         [HttpGet("news")]
         public object News() => Get("https://api.iextrading.com/1.0/stock/aapl/news");
+
+        [HttpGet("stocks")]
+        public object Stocks() => Get("https://api.iextrading.com/1.0/ref-data/symbols");
     }
 }
