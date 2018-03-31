@@ -7,6 +7,7 @@ if (!-[1,]) alert('Internet Explorer 7 and 8 are not supported');
 import 'purecss/build/pure-min.css';
 import m from 'mithril';
 import { home } from './pages/home';
+import { markets } from './pages/markets';
 import { about } from './pages/about';
 import { error } from './pages/error';
 import { login } from './pages/account/user/login';
@@ -16,7 +17,7 @@ import { pageHeader } from './components/page/page-header';
 import { pageFooter } from './components/page/page-footer';
 import { loadStyles } from './services/dom-service';
 
-const pages = { home, about, error, login, adminDashboard, adminAddUser };
+const pages = { home, markets, about, error, login, adminDashboard, adminAddUser };
 
 // language=CSS
 const css = `

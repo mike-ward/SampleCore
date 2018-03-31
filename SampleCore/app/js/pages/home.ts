@@ -1,47 +1,42 @@
 ﻿import m from 'mithril';
-import { grid } from '../components/widgets/grid';
-import { IGridOptions, IGridColumn } from '../components/widgets/grid-options';
-import { camelIdentifierToTitle, dateToLocaleString } from '../services/convert-service';
 import { loadStyles } from '../services/dom-service';
+import { dateToLocaleString} from '../services/convert-service';
 
-let gridOptions = { columns: [] as any[], data: [] as any[] } as IGridOptions;
+let news: undefined[] = [];
 
 function view() {
   return m('div', [
-    m('h2', 'Welcome'),
-    m('p[style="font-weight:bold"]', 'Most Active Stocks'),
-    m(grid, { 'class': 'home-markets-grid', gridOptions: gridOptions })
+    m('h2', 'News'),
+    m('div', news.map(item => buildNewsNode(item)))
   ]);
 }
 
 function oncreate() {
-  getMostActive()
-    .then(r => {gridOptions = loadGrid(r)})
-    .catch(r => r);
-}
-
-function getMostActive() {
-  return m.request({ url: 'api/markets/mostactive', data: Date.now() });
-}
-
-function loadGrid(data: any) {
-  const fields = ['symbol', 'companyName', 'primaryExchange', 'sector', 'latestPrice', 'open', 'close', 'high', 'low', 'week52High', 'week52Low'];
-
-  const columns: IGridColumn[] = fields
-    .map(field => ({
-      id: field,
-      title: camelIdentifierToTitle(field),
-      allowSort: true,
-    }));
-
-  return { columns: columns, data: data };
+  getNews()
+    .then(r => news = r as any);
 }
 
 // language=css
-const css = `.home-markets-grid { font-size: smaller; }`;
+const css = `
+  .new-item { margin-bottom: 2em; }
+  .home-date-time { margin: -1em 0 1em 0; font-weight: bold; }`;
 loadStyles(css);
 
 export var home = {
   view: view,
   oncreate: oncreate
+}
+
+function getNews() {
+  return m.request({ url: 'api/markets/news', data: Date.now() });
+}
+
+function buildNewsNode(item: any) {
+  const vn = m('.news-item', [
+    m('h3', [m('a', { href: item.url, target: '_blank' } as any, item.headline)]),
+    m('div.home-date-time', dateToLocaleString(item.datetime)),
+    m('p', item.summary),
+    m('p', m.trust(`source: <em>${item.source}<em>`))
+  ]);
+  return vn;
 }

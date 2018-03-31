@@ -7,5 +7,5 @@ test('home page has correct tags', () => {
   var out = mq(home);
   out.should.have('div');
   out.should.have('h2');
-  out.should.contain("Welcome");
+  out.should.contain("News");
 });

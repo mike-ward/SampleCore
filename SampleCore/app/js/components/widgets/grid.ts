@@ -94,7 +94,7 @@ function columnSortAction(column: IGridColumn, state: any) {
 
 function view(vnode: any) {
   const gridOptions = vnode.attrs.gridOptions as IGridOptions;
-  if (!gridOptions) return null;
+  if (!gridOptions || !gridOptions.columns || !gridOptions.data) return null;
 
   const vn = m('.grid', vnode.attrs, [
     m('table.pure-table.pure-table-bordered', [

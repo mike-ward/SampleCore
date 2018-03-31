@@ -10,8 +10,8 @@ loadStyles(css);
 const navbarOptions = {
   items: [
     { name: 'Home', link: 'home' },
-    { name: 'Item1', link: 'item1' },
-    { name: 'Item2', link: 'item2' },
+    { name: 'Markets', link: 'markets' },
+    { name: 'Stocks', link: 'stocks' },
     { name: 'About', link: 'about' }
   ]
 }
